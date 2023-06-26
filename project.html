@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dynamic Content Display</title>
+  <style>
+    *{
+        margin: 0;
+        box-sizing: border-box;
+    }
+    #left-panel {
+      width: 20%;
+      float: left;
+      background-color: #f0f0f0;
+      height: 100vh;
+    }
+
+    #content {
+      width: 80%;
+      float: left;
+      padding: 20px;
+
+
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    li:hover {
+      background-color: #e0e0e0;
+    }
+  </style>
+  <script>
+    function showContent(contentId) {
+      var contentElements = document.getElementsByClassName('content');
+      for (var i = 0; i < contentElements.length; i++) {
+        contentElements[i].style.display = 'none';
+      }
+
+      var selectedContent = document.getElementById(contentId);
+      if (selectedContent) {
+        selectedContent.style.display = 'block';
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="left-panel">
+    <ul>
+      <li onclick="showContent('home')">Home</li>
+      <li onclick="showContent('contact')">Contact</li>
+      <li onclick="showContent('information')">Information</li>
+      <li onclick="showContent('guide')">Guide</li>
+    </ul>
+  </div>
+
+  <div id="content">
+    <div id="home" class="content">
+      <h2>Welcome to the Home Page</h2>
+      <p>This is the content for the Home page.</p>
+    </div>
+
+    <div id="contact" class="content" style="display: none;">
+      <h2>Contact Information</h2>
+      <p>Here is the contact information.</p>
+    </div>
+
+    <div id="information" class="content" style="display: none;">
+      <h2>Information Page</h2>
+      <p>This is the content for the Information page.</p>
+    </div>
+
+    <div id="guide" class="content" style="display: none;">
+      <h2>Guide</h2>
+      <p>This is the content for the Guide page.</p>
+    </div>
+  </div>
+</body>
+</html>
